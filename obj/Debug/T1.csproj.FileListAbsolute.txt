@@ -1,0 +1,3 @@
+C:\Users\Lucas\source\repos\T1\T1\obj\Debug\T1.csprojAssemblyReference.cache
+C:\Users\Lucas\source\repos\T1\T1\obj\Debug\T1.exe.config
+C:\Users\Lucas\source\repos\T1\T1\obj\Debug\T1.csproj.CoreCompileInputs.cache

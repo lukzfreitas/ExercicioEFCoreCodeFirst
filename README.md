@@ -1,0 +1,2 @@
+# ExercicioEFCoreCodeFirst
+Trabalho de PSA

@@ -8,3 +8,4 @@ C:\Users\aurib\source\repos\ExercicioEFCoreCodeFirst\ExercicioEFCoreCodeFirst\ob
 C:\Users\aurib\source\repos\ExercicioEFCoreCodeFirst\ExercicioEFCoreCodeFirst\obj\Debug\netcoreapp2.1\ExercicioEFCoreCodeFirst.AssemblyInfo.cs
 C:\Users\aurib\source\repos\ExercicioEFCoreCodeFirst\ExercicioEFCoreCodeFirst\obj\Debug\netcoreapp2.1\ExercicioEFCoreCodeFirst.dll
 C:\Users\aurib\source\repos\ExercicioEFCoreCodeFirst\ExercicioEFCoreCodeFirst\obj\Debug\netcoreapp2.1\ExercicioEFCoreCodeFirst.pdb
+C:\Users\aurib\source\repos\ExercicioEFCoreCodeFirst\ExercicioEFCoreCodeFirst\obj\Debug\netcoreapp2.1\ExercicioEFCoreCodeFirst.csprojAssemblyReference.cache

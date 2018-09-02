@@ -3633,11 +3633,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\aurib\\source\\repos\\ExercicioEFCoreCodeFirst\\ExercicioEFCoreCodeFirst\\ExercicioEFCoreCodeFirst.csproj",
+      "projectUniqueName": "C:\\Users\\aurib\\Downloads\\ExercicioEFCoreCodeFirst\\ExercicioEFCoreCodeFirst\\ExercicioEFCoreCodeFirst.csproj",
       "projectName": "ExercicioEFCoreCodeFirst",
-      "projectPath": "C:\\Users\\aurib\\source\\repos\\ExercicioEFCoreCodeFirst\\ExercicioEFCoreCodeFirst\\ExercicioEFCoreCodeFirst.csproj",
+      "projectPath": "C:\\Users\\aurib\\Downloads\\ExercicioEFCoreCodeFirst\\ExercicioEFCoreCodeFirst\\ExercicioEFCoreCodeFirst.csproj",
       "packagesPath": "C:\\Users\\aurib\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\aurib\\source\\repos\\ExercicioEFCoreCodeFirst\\ExercicioEFCoreCodeFirst\\obj\\",
+      "outputPath": "C:\\Users\\aurib\\Downloads\\ExercicioEFCoreCodeFirst\\ExercicioEFCoreCodeFirst\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

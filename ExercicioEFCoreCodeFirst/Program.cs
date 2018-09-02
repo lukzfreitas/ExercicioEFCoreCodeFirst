@@ -181,14 +181,18 @@ namespace ExercicioEFCoreCodeFirst
                 Console.WriteLine();
                 Console.WriteLine("Lista do ator que desempenhou mais vezes um determinado personagem(press any key...):");
                 Console.ReadKey();
-                var e3 =
-                    from actor in db.Actors
-                    join ActorMovie in db.Characters on actor.ActorId equals ActorMovie.ActorId
-                    where ActorMovie.Character == "James Bond" &&  
-                    select actor;
-                foreach (var e21 in e2)
+                //var e3 = from p in cacheProducts
+                //         join MR in MasterRenewal on p.Id equals MR.MstSeq into MRRenewal
+                //         let MR = MRRenewal.OrderByDescending(r => r.Id).FirstOrDefault()
+
+                var e3 = from actor in db.Actors
+                         join actorMovie in db.Characters on actor.ActorId equals actorMovie.ActorId  into result                         
+                         let resultActors = result.OrderByDescending(r => r.ActorId).FirstOrDefault()
+                         select actor;
+
+                foreach (var e31 in e3)
                 {
-                    Console.WriteLine(e21.Name);
+                    Console.WriteLine(e31.Name);
                 }
                 #endregion
 
@@ -304,8 +308,8 @@ namespace ExercicioEFCoreCodeFirst
             new Movie {Title = "Harry Potter and the Goblet of Fire", Director = "Mike Newell", ReleaseDate = DateTime.Parse("18/11/2005",new CultureInfo("en-US")), GenreID =  genres.Single( g => g.Name == "Fantasy").GenreID,Gross = 896911078 , Rating = 7.7},
 
             new Movie {Title = "Inside Llewyn Davis", Director = "Joel e Ethan Coen", ReleaseDate = DateTime.Parse("10/01/2014",new CultureInfo("en-US")), GenreID =  genres.Single( g => g.Name == "Drama").GenreID,Gross = 32900 , Rating = 7.5},
-            new Movie {Title = "Ex Machina", Director = "Alex Garland", ReleaseDate = DateTime.Parse("10/05/2015",new CultureInfo("en-US")), GenreID =  genres.Single( g => g.Name == "Sci-Fi").GenreID,Gross = 37000 , Rating = 7.7},
-            new Movie {Title = "Mulan", Director = "Tony Bancroft e Barry Cook", ReleaseDate = DateTime.Parse("19/06/1998",new CultureInfo("en-US")), GenreID =  genres.Single( g => g.Name == "Animation").GenreID,Gross = 304000000 , Rating = 7.6}
+            new Movie {Title = "Ex_Machina", Director = "Alex Garland", ReleaseDate = DateTime.Parse("10/05/2015",new CultureInfo("en-US")), GenreID =  genres.Single( g => g.Name == "Sci-Fi").GenreID,Gross = 37000 , Rating = 7.7},
+            new Movie {Title = "Mulan", Director = "Tony Bancroft e Barry Cook", ReleaseDate = DateTime.Parse("19/06/1998",new CultureInfo("en-US")), GenreID =  genres.Single( g => g.Name == "Animation").GenreID,Gross = 304000000 , Rating = 7.6},
 
             };
 
@@ -369,7 +373,32 @@ namespace ExercicioEFCoreCodeFirst
                       new Actor{ Name = "Eva Green", DateBirth =   DateTime.Parse("7/6/1980",new CultureInfo("en-US")) },
                       new Actor{ Name = "Mads Mikkelsen", DateBirth =   DateTime.Parse("11/22/1965",new CultureInfo("en-US")) },
                       #endregion
-                  };
+
+                      //Exercicio 11
+                      #region Harry Potter
+                      new Actor{Name = "Daniel Radcliffe", DateBirth =   DateTime.Parse("23/7/1989",new CultureInfo("en-US")) },
+                      new Actor{Name = "Rupert Grint", DateBirth =   DateTime.Parse("24/8/1988",new CultureInfo("en-US")) },
+                      new Actor{Name = "Emma Watson", DateBirth =   DateTime.Parse("15/4/1990",new CultureInfo("en-US")) },
+                      #endregion
+
+                      #region Inside Llewyn Davis
+                      new Actor{Name = "Oscar Isaac", DateBirth =   DateTime.Parse("09/3/1979",new CultureInfo("en-US")) },
+                      new Actor{Name = "Carey Mulligan", DateBirth =   DateTime.Parse("28/5/1985",new CultureInfo("en-US")) },
+                      new Actor{Name = "Justin Timberlake", DateBirth =   DateTime.Parse("31/1/1981",new CultureInfo("en-US")) },
+                      #endregion
+
+                      #region Ex_Machina
+                      new Actor{Name = "Domhnall Gleeson", DateBirth =   DateTime.Parse("12/5/1983",new CultureInfo("en-US")) },
+                      new Actor{Name = "Alicia Vikander", DateBirth =   DateTime.Parse("03/10/1988",new CultureInfo("en-US")) },
+                      new Actor{Name = "Oscar Isaac", DateBirth =   DateTime.Parse("09/3/1979",new CultureInfo("en-US")) },
+                      #endregion
+
+                      #region Mulan
+                      new Actor{Name = "Ming-Na", DateBirth =   DateTime.Parse("20/11/1963",new CultureInfo("en-US")) },
+                      new Actor{Name = "Eddie Murphy", DateBirth =   DateTime.Parse("03/4/1961",new CultureInfo("en-US")) },
+                      new Actor{Name = "B.D. Wong", DateBirth =   DateTime.Parse("24/10/1960",new CultureInfo("en-US")) },
+                      #endregion
+            };
 
             //actors.ForEach(s => context.Actors.AddOrUpdate(a => a.Name, s));
             context.Actors.AddRange(actors);
@@ -452,7 +481,50 @@ namespace ExercicioEFCoreCodeFirst
                       new ActorMovie { ActorId = actors.Single(g => g.Name == "Mads Mikkelsen").ActorId, Character =  "Le Chiffre", MovieId = movies.Single(g => g.Title == "Casino Royale").ID },
                       new ActorMovie { ActorId = actors.Single(g => g.Name == "Judi Dench").ActorId, Character =  "M", MovieId = movies.Single(g => g.Title == "Casino Royale").ID },
 
-                      #endregion
+                     #endregion
+                    
+                      //Exercicio 11
+                      #region Pedra Filosofal
+                     new ActorMovie { ActorId = actors.Single(g => g.Name == "Daniel Radcliffe").ActorId, Character =  "Harry Potter", MovieId = movies.Single(g => g.Title == "Harry Potter and the Philosopher's Stone").ID },
+                     new ActorMovie { ActorId = actors.Single(g => g.Name == "Rupert Grint").ActorId, Character =  "Ron Weasley", MovieId = movies.Single(g => g.Title == "Harry Potter and the Philosopher's Stone").ID },
+                     new ActorMovie { ActorId = actors.Single(g => g.Name == "Emma Watson").ActorId, Character =  "Hermione Granger", MovieId = movies.Single(g => g.Title == "Harry Potter and the Philosopher's Stone").ID },
+                     #endregion
+
+                     #region Camara Secreta
+                     new ActorMovie { ActorId = actors.Single(g => g.Name == "Daniel Radcliffe").ActorId, Character =  "Harry Potter", MovieId = movies.Single(g => g.Title == "Harry Potter and the Chamber of Secrets").ID },
+                     new ActorMovie { ActorId = actors.Single(g => g.Name == "Rupert Grint").ActorId, Character =  "Ron Weasley", MovieId = movies.Single(g => g.Title == "Harry Potter and the Chamber of Secrets").ID },
+                     new ActorMovie { ActorId = actors.Single(g => g.Name == "Emma Watson").ActorId, Character =  "Hermione Granger", MovieId = movies.Single(g => g.Title == "Harry Potter and the Chamber of Secrets").ID },
+                     #endregion
+
+                     #region Pisioneiro de Azkaban
+                     new ActorMovie { ActorId = actors.Single(g => g.Name == "Daniel Radcliffe").ActorId, Character =  "Harry Potter", MovieId = movies.Single(g => g.Title == "Harry Potter and the Prisoner of Azkaban").ID },
+                     new ActorMovie { ActorId = actors.Single(g => g.Name == "Rupert Grint").ActorId, Character =  "Ron Weasley", MovieId = movies.Single(g => g.Title == "Harry Potter and the Prisoner of Azkaban").ID },
+                     new ActorMovie { ActorId = actors.Single(g => g.Name == "Emma Watson").ActorId, Character =  "Hermione Granger", MovieId = movies.Single(g => g.Title == "Harry Potter and the Prisoner of Azkaban").ID },
+                     #endregion
+
+                     #region Calice de Fogo
+                     new ActorMovie { ActorId = actors.Single(g => g.Name == "Daniel Radcliffe").ActorId, Character =  "Harry Potter", MovieId = movies.Single(g => g.Title == "Harry Potter and the Goblet of Fire").ID },
+                     new ActorMovie { ActorId = actors.Single(g => g.Name == "Rupert Grint").ActorId, Character =  "Ron Weasley", MovieId = movies.Single(g => g.Title == "Harry Potter and the Goblet of Fire").ID },
+                     new ActorMovie { ActorId = actors.Single(g => g.Name == "Emma Watson").ActorId, Character =  "Hermione Granger", MovieId = movies.Single(g => g.Title == "Harry Potter and the Goblet of Fire").ID },
+                     #endregion
+
+                     #region Inside Llewyn Davis
+                     new ActorMovie { ActorId = actors.Single(g => g.Name == "Oscar Isaac").ActorId, Character =  "Llewyn Davis", MovieId = movies.Single(g => g.Title == "Inside Llewyn Davis").ID },
+                     new ActorMovie { ActorId = actors.Single(g => g.Name == "Carey Mulligan").ActorId, Character =  "Jane", MovieId = movies.Single(g => g.Title == "Inside Llewyn Davis").ID },
+                     new ActorMovie { ActorId = actors.Single(g => g.Name == "Justin Timberlake").ActorId, Character =  "Jim", MovieId = movies.Single(g => g.Title == "Inside Llewyn Davis").ID },
+                     #endregion
+
+                     #region Ex_Machina
+                     new ActorMovie { ActorId = actors.Single(g => g.Name == "Domhnall Gleeson").ActorId, Character =  "Caleb Smith", MovieId = movies.Single(g => g.Title == "Ex_Machina").ID },
+                     new ActorMovie { ActorId = actors.Single(g => g.Name == "Alicia Vikander").ActorId, Character =  "Ava", MovieId = movies.Single(g => g.Title == "Ex_Machina").ID },
+                     new ActorMovie { ActorId = actors.Single(g => g.Name == "Oscar Isaac").ActorId, Character =  "Nathan Bateman", MovieId = movies.Single(g => g.Title == "Ex_Machina").ID },
+                     #endregion
+
+                     #region Mulan
+                     new ActorMovie { ActorId = actors.Single(g => g.Name == "Ming-Na").ActorId, Character =  "Mulan", MovieId = movies.Single(g => g.Title == "Mulan").ID },
+                     new ActorMovie { ActorId = actors.Single(g => g.Name == "Eddie Murphy ").ActorId, Character =  "Mushu", MovieId = movies.Single(g => g.Title == "Mulan").ID },
+                     new ActorMovie { ActorId = actors.Single(g => g.Name == "B.D. Wong").ActorId, Character =  "Shang", MovieId = movies.Single(g => g.Title == "Mulan").ID },
+                     #endregion
             };
 
             //actorCharacters.ForEach(s => context.Characters.AddOrUpdate(ac => new { ac.ActorId, ac.MovieId }, s));
